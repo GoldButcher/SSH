@@ -27,4 +27,11 @@ public class UserController {
 		return userService.getByKey(id);
 	}
 
+
+	@RequestMapping(value = "/addUser")
+	@ResponseBody
+	public UserVO addUser(String name,Integer age){
+		return userService.addUser(name,age);
+	}
+
 }

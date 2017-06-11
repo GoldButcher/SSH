@@ -22,4 +22,13 @@ public class UserServiceImpl extends BaseServiceImpl<Integer,UserVO> implements 
     public void setUserDAO(IUserDAO userDAO) {
 		super.setBaseDao(userDAO);
     }
+
+	@Override
+	public UserVO addUser(String name, Integer age) {
+		UserVO userVO = new UserVO();
+		userVO.setName(name);
+		userVO.setAge(age);
+		Integer id = userDAO.sava(userVO);
+		return userDAO.getByKey(id);
+	}
 }
